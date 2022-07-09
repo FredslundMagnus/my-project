@@ -33,6 +33,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
           height="368px"
           width="736px"
           alt="the fresh logo: a slisced lemon dripping with juice"
+          loading="lazy"
         />
         <div
           class={`${body} markdown-body`}

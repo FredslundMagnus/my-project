@@ -26,13 +26,13 @@ export default function Article({ data }: PageProps<Markdown | null>) {
         <title>{data.title}</title>
       </Head>
       <div class={tw`p-4 mx-auto max-w-screen-md`}>
-        <h2>{data.tags.join(", ")}</h2>
+        <p>{data.tags.join(", ")}</p>
         <h1 class={tw`font-bold text-4xl`}>{data.title}</h1>
         <img
           src={data.image}
           height="368px"
           width="736px"
-          // alt="This alt text should be fixed"
+          alt="This alt text should be fixed"
           // loading="lazy"
         />
         <div

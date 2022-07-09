@@ -32,7 +32,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
           src={data.image}
           height="400px"
           width="800px"
-          alt="the fresh logo: a sliced lemon dripping with juice"
+          alt="the fresh logo: a slisced lemon dripping with juice"
         />
         <div
           class={`${body} markdown-body`}

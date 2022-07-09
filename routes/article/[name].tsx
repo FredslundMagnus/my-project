@@ -15,7 +15,7 @@ export const handler: Handlers<Markdown | null> = {
 
 export default function Article({ data }: PageProps<Markdown | null>) {
   if (!data) {
-    return <h1>User not found</h1>;
+    return <h1>Article not found</h1>;
   }
 
   const body = tw`mt-6`;
@@ -26,8 +26,10 @@ export default function Article({ data }: PageProps<Markdown | null>) {
         <title>{data.title}</title>
       </Head>
       <div class={tw`p-4 mx-auto max-w-screen-md`}>
+        <h2>{data.tags.join(", ")}</h2>
+        <h1 class={tw`font-bold text-4xl`}>{data.title}</h1>
         <img
-          src="/logo.svg"
+          src={data.image}
           height="100px"
           alt="the fresh logo: a sliced lemon dripping with juice"
         />

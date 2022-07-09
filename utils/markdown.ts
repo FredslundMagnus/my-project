@@ -31,7 +31,7 @@ export async function readMarkdown(
       {},
     ) as Record<string, string>;
     const info: Markdown = {
-      tags: data.tags.split(",").map((e) => e.trim()),
+      tags: data.tags.split(",").map((e) => e.trim().toUpperCase()),
       date: data.date,
       title: data.title,
       subtitle: data.subtitle,

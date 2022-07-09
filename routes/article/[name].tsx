@@ -1,5 +1,5 @@
 /** @jsx h */
-import { Fragment, h, VNode } from "preact";
+import { Fragment, h } from "preact";
 import { Head } from "$fresh/runtime.ts";
 import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
@@ -30,7 +30,8 @@ export default function Article({ data }: PageProps<Markdown | null>) {
         <h1 class={tw`font-bold text-4xl`}>{data.title}</h1>
         <img
           src={data.image}
-          height="100px"
+          height="400px"
+          width="800px"
           alt="the fresh logo: a sliced lemon dripping with juice"
         />
         <div

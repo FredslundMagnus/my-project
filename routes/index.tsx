@@ -6,9 +6,11 @@ import Counter from "../islands/Counter.tsx";
 export default function Home() {
   return (
     <html>
-      <head>
-        <title>Testing 2</title>
-      </head>
+      <div>
+        <head>
+          <title>Testing 2</title>
+        </head>
+      </div>
       <body>
         <div class={tw`p-4 mx-auto max-w-screen-md`}>
           <img

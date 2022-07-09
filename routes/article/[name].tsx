@@ -28,6 +28,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
       <div class={tw`p-4 mx-auto max-w-screen-md`}>
         <p>{data.tags.join(", ")}</p>
         <h1 class={tw`font-bold text-4xl`}>{data.title}</h1>
+        <h2 class={tw`text-3xl text-gray-500`}>{data.subtitle}</h2>
         <img
           src={data.image}
           height="368px"

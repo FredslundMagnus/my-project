@@ -1,3 +1,9 @@
 {
-  "deno.enable": true
+  "deno.enable": true,
+  "editor.inlineSuggest.enabled": true,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "README.md": "dev.ts, deno.json, fresh.gen.ts, import_map.json, main.ts"
+  }
 }

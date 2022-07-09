@@ -30,8 +30,8 @@ export default function Article({ data }: PageProps<Markdown | null>) {
         <h1 class={tw`font-bold text-4xl`}>{data.title}</h1>
         <img
           src={data.image}
-          height="400px"
-          width="800px"
+          height="368px"
+          width="736px"
           alt="the fresh logo: a slisced lemon dripping with juice"
         />
         <div

@@ -32,8 +32,8 @@ export default function Article({ data }: PageProps<Markdown | null>) {
           src={data.image}
           height="368px"
           width="736px"
-          alt="the fresh logo: a slisced lemon dripping with juice"
-          loading="lazy"
+          // alt="This alt text should be fixed"
+          // loading="lazy"
         />
         <div
           class={`${body} markdown-body`}

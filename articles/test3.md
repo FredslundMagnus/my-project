@@ -1,5 +1,5 @@
 ---
-tags: [pschology, app]
+tags: [Pschology, App]
 date: 09-07-2022
 title: New Self-Help App for Better Mental Health and Well-being
 subtitle: Meta Learn is a new interactive app based on metacognitive therapy and coaching.

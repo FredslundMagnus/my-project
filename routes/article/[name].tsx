@@ -24,6 +24,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
     <Fragment>
       <Head>
         <title>{data.title}</title>
+        <meta name="description" content={data.subtitle}></meta>
       </Head>
       <div class={tw`p-4 mx-auto max-w-screen-md`}>
         <p>{data.tags.join(", ")}</p>

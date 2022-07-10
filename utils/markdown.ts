@@ -1,11 +1,12 @@
 import { Marked } from "https://deno.land/x/markdown@v2.0.0/mod.ts";
 
 export interface Markdown {
-  tags: Array<string>; //"pschology, app",
-  date: string; //"09-07-2022",
-  title: string; //"New Self-Help App for Better Mental Health and Well-being",
-  subtitle: string; //"Meta Learn is a new interactive app based on metacognitive therapy and coaching.",
-  image: string; //"https://miro.medium.com/max/1313/1*vCdOvydgw6dOJBW7qDEJzQ.png"
+  tags: Array<string>; // "pschology, app",
+  date: string; // "09-07-2022",
+  title: string; // "New Self-Help App for Better Mental Health and Well-being",
+  subtitle: string; // "Meta Learn is a new interactive app based on metacognitive therapy and coaching.",
+  image: string; // "https://miro.medium.com/max/1313/1*vCdOvydgw6dOJBW7qDEJzQ.png",
+  author: string; // "Meta Learn",
   markdown: string;
 }
 
@@ -36,6 +37,7 @@ export async function readMarkdown(
       title: data.title,
       subtitle: data.subtitle,
       image: data.image,
+      author: data.author,
       markdown: Marked.parse(markdown).content,
     };
     console.debug(info);

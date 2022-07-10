@@ -32,6 +32,11 @@ export default function Articles({ data }: PageProps<Markdown[]>) {
     <Fragment>
       <Head>
         <title>Articles</title>
+        <meta name="description" content="A collection of articles"></meta>
+        {
+          /* <meta name="keywords" content={data.map(())}></meta>
+        <meta name="author" content={data.author}></meta> */
+        }
       </Head>
       <section class={section}>
         {data.map(({ name, image, image_description, title, subtitle }) => {

@@ -19,6 +19,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
   if (!data) {
     return <h1>Article not found</h1>;
   }
+  const website = "https://soft-mouse-32.deno.dev";
   const h1 = tw`font-bold text-4xl text-gray-900`;
   const tags = tw`text-gray-500 text-sm tracking-wide`;
   const subtitle = tw`text-2xl text-gray-500 font-normal pt-2 pb-8`;
@@ -35,6 +36,15 @@ export default function Article({ data }: PageProps<Markdown | null>) {
         <meta name="description" content={data.subtitle}></meta>
         <meta name="keywords" content={data.tags.join(", ")}></meta>
         <meta name="author" content={data.author}></meta>
+
+        <meta property="og:type" content="article"></meta>
+        <meta property="og:site_name" content="Meta Learn" />
+        <meta property="og:title" content={data.title} />
+        <meta property="og:description" content={data.subtitle} />
+        {/* <meta property="og:url" content={`www.me`} /> */}
+        <meta property="og:image" content={`${website}${data.image}`} />
+        <meta property="og:image:type" content="image/webp" />
+        <meta property="og:image:alt" content={data.image_description} />
       </Head>
       <article class={article}>
         <h2 class={tags}>{data.tags.map((s) => s.toUpperCase()).join(", ")}</h2>

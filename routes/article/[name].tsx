@@ -28,7 +28,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
         <meta name="keywords" content={data.tags.join(", ")}></meta>
         <meta name="author" content={data.author}></meta>
       </Head>
-      <div class={tw`p-4 mx-auto max-w-screen-md`}>
+      <article class={tw`p-4 mx-auto max-w-screen-md`}>
         <h2>{data.tags.map((s) => s.toUpperCase()).join(", ")}</h2>
         <h1 class={tw`font-bold text-4xl`}>{data.title}</h1>
         <h2 class={tw`text-3xl text-gray-500`}>{data.subtitle}</h2>
@@ -42,7 +42,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
           class={`${body} markdown-body`}
           dangerouslySetInnerHTML={{ __html: html }}
         />
-      </div>
+      </article>
     </Fragment>
   );
 }

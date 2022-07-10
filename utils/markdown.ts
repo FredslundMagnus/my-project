@@ -11,6 +11,7 @@ export interface Markdown {
   image: string; // "https://miro.medium.com/max/1313/1*vCdOvydgw6dOJBW7qDEJzQ.png",
   image_description: string;
   author: string; // "Meta Learn",
+  author_twitter: string; // "@MetaLearnApp"
   markdown: formatter;
 }
 

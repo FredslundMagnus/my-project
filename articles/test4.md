@@ -6,6 +6,7 @@ subtitle: Meta Learn is a new interactive app based on metacognitive therapy and
 image: /images/exercises-web.webp
 image_description: Just an cool image.
 author: Meta Learn
+author_twitter: @MetaLearnApp
 ---
 
 ### New self-help app

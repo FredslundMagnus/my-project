@@ -62,6 +62,20 @@ export default function Article({ data }: PageProps<Markdown | null>) {
         <meta property="og:site_name" content="Meta Learn" />
         <meta property="og:image:type" content="image/webp" />
         <meta property="og:image:alt" content={data.image_description} />
+
+        {/* Article */}
+        <meta
+          property="article:published_time"
+          content="2022-07-01T13:28:21.217Z"
+        />
+        {
+          /* article:published_time - datetime - When the article was first
+        published. article:modified_time - datetime - When the article was last
+        changed. article:expiration_time - datetime - When the article is out of
+        date after. article:author - profile array - Writers of the article.
+        article:section - string - A high-level section name. E.g. Technology
+        article:tag - string array - Tag words associated with this article. */
+        }
       </Head>
       <article class={article}>
         <h2 class={tags}>{data.tags.map((s) => s.toUpperCase()).join(", ")}</h2>

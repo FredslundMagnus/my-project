@@ -9,6 +9,7 @@ import { Markdown, readMarkdown } from "../utils/markdown.ts";
 export const handler: Handlers<Markdown[]> = {
   async GET(_, ctx) {
     const names = articleNames();
+    console.log(ctx.params);
     const markdowns =
       (await Promise.all(names.map((name) => readMarkdown(name)))).filter((a) =>
         a != null

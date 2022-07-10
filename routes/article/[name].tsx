@@ -37,7 +37,6 @@ export default function Article({ data }: PageProps<Markdown | null>) {
           height="368px"
           width="736px"
           alt={data.image_description}
-          // loading="lazy"
         />
         <div
           class={`${body} markdown-body`}

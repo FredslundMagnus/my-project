@@ -32,17 +32,32 @@ export default function Article({ data }: PageProps<Markdown | null>) {
   return (
     <Fragment>
       <Head>
+        {/* Primary Meta Tags */}
         <title>{data.title}</title>
+        <meta name="title" content={data.title} />
         <meta name="description" content={data.subtitle}></meta>
         <meta name="keywords" content={data.tags.join(", ")}></meta>
         <meta name="author" content={data.author}></meta>
 
-        <meta property="og:type" content="article"></meta>
-        <meta property="og:site_name" content="Meta Learn" />
+        {/* Open Graph / Facebook */}
+        <meta property="og:url" content={`${website}/article/${data.name}`} />
         <meta property="og:title" content={data.title} />
         <meta property="og:description" content={data.subtitle} />
-        {/* <meta property="og:url" content={`www.me`} /> */}
         <meta property="og:image" content={`${website}${data.image}`} />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content={`${website}/article/${data.name}`}
+        />
+        <meta property="twitter:title" content={data.title} />
+        <meta property="twitter:description" content={data.subtitle} />
+        <meta property="twitter:image" content={`${website}${data.image}`} />
+
+        {/* Extra */}
+        <meta property="og:type" content="article"></meta>
+        <meta property="og:site_name" content="Meta Learn" />
         <meta property="og:image:type" content="image/webp" />
         <meta property="og:image:alt" content={data.image_description} />
       </Head>

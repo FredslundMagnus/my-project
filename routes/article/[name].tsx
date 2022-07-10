@@ -55,7 +55,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
         <meta property="twitter:description" content={data.subtitle} />
         <meta property="twitter:image" content={`${website}${data.image}`} />
         <meta name="twitter:site" content="@MetaLearnApp" />
-        <meta name="twitter:creator" content={data.author_twitter} />
+        <meta name="twitter:creator" content={`@${data.author_twitter}`} />
 
         {/* Extra */}
         <meta property="og:type" content="article"></meta>

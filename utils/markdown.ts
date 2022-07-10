@@ -39,6 +39,7 @@ export async function readMarkdown(
       name: name,
       markdown: cleanMarkdown(markdown.content),
     } as Markdown;
+    data.date = new Date(data.date).toISOString();
     console.log(data);
     console.log(markdown.content);
     return data;

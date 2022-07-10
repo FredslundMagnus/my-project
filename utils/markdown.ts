@@ -1,5 +1,7 @@
 import { Marked } from "https://deno.land/x/markdown@v2.0.0/mod.ts";
 
+type formatter = (h3: string, p: string, a: string) => string;
+
 export interface Markdown {
   tags: Array<string>; // "pschology, app",
   date: string; // "09-07-2022",
@@ -8,7 +10,17 @@ export interface Markdown {
   image: string; // "https://miro.medium.com/max/1313/1*vCdOvydgw6dOJBW7qDEJzQ.png",
   image_description: string;
   author: string; // "Meta Learn",
-  markdown: string;
+  markdown: formatter;
+}
+
+function cleanMarkdown(markdown: string): formatter {
+  function inner(h3: string, p: string, a: string): string {
+    markdown = markdown.replaceAll("<h3", `<h3 class="${h3}" `);
+    markdown = markdown.replaceAll("<p>", `<p class="${p}">`);
+    markdown = markdown.replaceAll("<a href", `<a class="${a}" href`);
+    return markdown;
+  }
+  return inner;
 }
 
 export async function readMarkdown(
@@ -20,9 +32,12 @@ export async function readMarkdown(
     const markdown = Marked.parse(
       decoder.decode(await Deno.readFile(filename)),
     );
-    const data = { ...markdown.meta, markdown: markdown.content } as Markdown;
+    const data = {
+      ...markdown.meta,
+      markdown: cleanMarkdown(markdown.content),
+    } as Markdown;
     console.log(data);
-    console.log(data.markdown);
+    console.log(markdown.content);
     return data;
   } catch (ex) {
     console.error(ex);

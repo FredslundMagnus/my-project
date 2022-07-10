@@ -3,6 +3,7 @@ import { Marked } from "https://deno.land/x/markdown@v2.0.0/mod.ts";
 type formatter = (h3: string, p: string, a: string) => string;
 
 export interface Markdown {
+  name: string;
   tags: Array<string>; // "pschology, app",
   date: string; // "09-07-2022",
   title: string; // "New Self-Help App for Better Mental Health and Well-being",
@@ -34,6 +35,7 @@ export async function readMarkdown(
     );
     const data = {
       ...markdown.meta,
+      name: name,
       markdown: cleanMarkdown(markdown.content),
     } as Markdown;
     console.log(data);

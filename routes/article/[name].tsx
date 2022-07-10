@@ -28,6 +28,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
         <meta name="keywords" content={data.tags.join(", ")}></meta>
         <meta name="author" content={data.author}></meta>
       </Head>
+      <style></style>
       <article class={tw`p-4 mx-auto max-w-screen-md`}>
         <h2>{data.tags.map((s) => s.toUpperCase()).join(", ")}</h2>
         <h1 class={tw`font-bold text-4xl`}>{data.title}</h1>

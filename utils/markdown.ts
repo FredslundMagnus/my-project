@@ -22,6 +22,7 @@ export async function readMarkdown(
     );
     const data = { ...markdown.meta, markdown: markdown.content } as Markdown;
     console.log(data);
+    console.log(data.markdown);
     return data;
   } catch (ex) {
     console.error(ex);

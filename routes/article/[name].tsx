@@ -63,19 +63,21 @@ export default function Article({ data }: PageProps<Markdown | null>) {
         <meta property="og:image:type" content="image/webp" />
         <meta property="og:image:alt" content={data.image_description} />
 
-        {/* Article */}
-        <meta
-          property="article:published_time"
-          content="2022-07-01T13:28:21.217Z"
-        />
-        {
-          /* article:published_time - datetime - When the article was first
-        published. article:modified_time - datetime - When the article was last
-        changed. article:expiration_time - datetime - When the article is out of
-        date after. article:author - profile array - Writers of the article.
-        article:section - string - A high-level section name. E.g. Technology
-        article:tag - string array - Tag words associated with this article. */
-        }
+        {/* Article -> https://ogp.me/ */}
+        <meta property="article:published_time" content="2013-09-17T05:59:00+01:00" />
+        <meta property="article:modified_time" content="2013-09-16T19:08:47+01:00" />
+        <meta property="article:expiration_time" content="2013-09-16T19:08:47+01:00" />
+        <meta property="article:author" content={data.author} />
+        <meta property="article:section" content="Article Section" />
+        <meta property="article:tag" content="Article Tag" />
+
+        <meta property="og:article:published_time" content="2013-09-17T05:59:00+01:00" />
+        <meta property="og:article:modified_time" content="2013-09-16T19:08:47+01:00" />
+        <meta property="og:article:expiration_time" content="2013-09-16T19:08:47+01:00" />
+        <meta property="og:article:author" content={data.author} />
+        <meta property="og:article:section" content="Article Section" />
+        <meta property="og:article:tag" content="Article Tag" />
+
       </Head>
       <article class={article}>
         <h2 class={tags}>{data.tags.map((s) => s.toUpperCase()).join(", ")}</h2>

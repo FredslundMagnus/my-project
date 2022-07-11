@@ -1,6 +1,6 @@
 /** @jsx h */
 import { Fragment, h } from "preact";
-import { Head } from "$fresh/runtime.ts";
+import { asset, Head } from "$fresh/runtime.ts";
 import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Markdown, readMarkdown } from "../../utils/markdown.ts";
@@ -11,6 +11,7 @@ export const handler: Handlers<Markdown | null> = {
     const { name } = ctx.params;
     const markdown = await readMarkdown(name);
     // await resizeImg(markdown?.image!);
+    console.log(asset(markdown!.image));
     return ctx.render(markdown);
   },
 };
@@ -35,7 +36,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
   return (
     <Fragment>
       <Head>
-        {/* <link rel="preload" as="image" href={data.image}></link> */}
+        <link rel="preload" as="image" href={asset(data.image)}></link>
 
         {/* Primary Meta Tags */}
         <title>{meta_title}</title>

@@ -1,5 +1,5 @@
 ---
-tags: [Psychology, App]
+tags: [Metacognitive Therapy, Psychology, Mental Health]
 date: 11-07-2022 12:44
 title: What is Metacognitive Therapy?
 subtitle: Meta Learn is a new interactive app based on metacognitive therapy and coaching.

@@ -73,14 +73,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
           return <meta property="article:tag" content={tag} />;
         })}
 
-        <meta property="og:article:published_time" content={data.date} />
-        <meta property="og:article:modified_time" content={data.date} />
-        {/* <meta property="og:article:expiration_time" content="2013-09-16T19:08:47+01:00" /> */}
-        <meta property="og:article:author" content={data.author} />
-        <meta property="og:article:section" content={data.tags[0]} />
-        {data.tags.map((tag) => {
-          return <meta property="og:article:tag" content={tag} />;
-        })}
+
 
         {/* Structured Data -> https://developers.google.com/search/docs/advanced/structured-data/article   (take non amp)*/}
         <script

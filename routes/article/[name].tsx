@@ -4,7 +4,7 @@ import { Head } from "$fresh/runtime.ts";
 import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Markdown, readMarkdown } from "../../utils/markdown.ts";
-import { resizeImg } from "../../utils/image.ts";
+// import { resizeImg } from "../../utils/image.ts";
 
 export const handler: Handlers<Markdown | null> = {
   async GET(_, ctx) {

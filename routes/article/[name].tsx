@@ -37,9 +37,6 @@ export default function Article({ data }: PageProps<Markdown | null>) {
     <Fragment>
       <Head>
         <link rel="preload" as="image" href={asset(data.image)}></link>
-        {/* <link rel="preload" as="image" href="/favicon.ico"></link> */}
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-        </link>
 
         {/* Primary Meta Tags */}
         <title>{meta_title}</title>

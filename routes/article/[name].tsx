@@ -117,8 +117,8 @@ export default function Article({ data }: PageProps<Markdown | null>) {
                     "url": "${website}",
                     "logo": {
                       "@type": "ImageObject",
-                      "width": 3840,
-                      "height": 3840,
+                      "width": 128,
+                      "height": 128,
                       "url": "${website}/logo.png"
                     }
                 }]

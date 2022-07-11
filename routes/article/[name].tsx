@@ -93,10 +93,16 @@ export default function Article({ data }: PageProps<Markdown | null>) {
                 "image": [
                   "${image_url}"
                 ],
+                "url": "${article_url}",
                 "datePublished": "${data.date}",
                 "dateModified": "${data.date}",
                 "isAccessibleForFree":"True",
                 "author": [{
+                    "@type": "Person",
+                    "name": "${data.author}",
+                    "url": "https://twitter.com/${data.author_twitter}"
+                  }],
+                "creadtor": [{
                     "@type": "Person",
                     "name": "${data.author}",
                     "url": "https://twitter.com/${data.author_twitter}"

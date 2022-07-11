@@ -102,7 +102,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
                     "name": "${data.author}",
                     "url": "https://twitter.com/${data.author_twitter}"
                   }],
-                "creadtor": [{
+                "creator": [{
                     "@type": "Person",
                     "name": "${data.author}",
                     "url": "https://twitter.com/${data.author_twitter}"

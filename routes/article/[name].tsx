@@ -94,6 +94,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
                   "${image_url}"
                 ],
                 "url": "${article_url}",
+                "dateCreated": "${data.date}",
                 "datePublished": "${data.date}",
                 "dateModified": "${data.date}",
                 "isAccessibleForFree":"True",
@@ -110,7 +111,13 @@ export default function Article({ data }: PageProps<Markdown | null>) {
                 "publisher": [{
                     "@type": "Organization",
                     "name": "Meta Learn Aps",
-                    "url": "${website}"
+                    "url": "${website}",
+                    "logo": {
+                      "@type": "ImageObject",
+                      "width": 3840,
+                      "height": 3840,
+                      "url": "https:\u002F\u002Fmiro.medium.com\u002Fmax\u002F308\u002F1*OMF3fSqH8t4xBJ9-6oZDZw.png"
+                    }
                 }]
               }
               `,

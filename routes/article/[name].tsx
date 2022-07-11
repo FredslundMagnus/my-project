@@ -100,7 +100,8 @@ export default function Article({ data }: PageProps<Markdown | null>) {
                     "@type": "Person",
                     "name": "${data.author}",
                     "url": "https://twitter.com/${data.author_twitter}"
-                  },{
+                  }],
+                "publisher": [{
                     "@type": "Organization",
                     "name": "Meta Learn Aps",
                     "url": "${website}"

@@ -128,6 +128,9 @@ export default function Article({ data }: PageProps<Markdown | null>) {
         <h2 class={subtitle}>{data.subtitle}</h2>
         <img
           class={img}
+          rel="preload"
+          as="image"
+          // preload={true}
           src={data.image}
           height="368px"
           width="736px"

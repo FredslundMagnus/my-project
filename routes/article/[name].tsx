@@ -90,9 +90,9 @@ export default function Article({ data }: PageProps<Markdown | null>) {
                 "@context": "https://schema.org",
                 "@type": "NewsArticle",
                 "headline": "${data.title} | Meta Learn",
-                "name": "${data.title}"
-                "description": "${data.subtitle}"
-                "mainEntityOfPage": "${website}"
+                "name": "${data.title}",
+                "description": "${data.subtitle}",
+                "mainEntityOfPage": "${website}",
                 "image": [
                   "${image_url}"
                 ],

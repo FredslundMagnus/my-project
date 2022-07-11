@@ -20,6 +20,8 @@ export default function Article({ data }: PageProps<Markdown | null>) {
     return <h1>Article not found</h1>;
   }
   const website = "https://soft-mouse-32.deno.dev";
+  const article_url = `${website}/article/${data.name}`;
+  const image_url = `${website}${data.image}`;
   const h1 = tw`font-bold text-4xl text-gray-900`;
   const tags = tw`text-gray-500 text-sm tracking-wide`;
   const subtitle = tw`text-2xl text-gray-500 font-normal pt-2 pb-8`;
@@ -40,20 +42,17 @@ export default function Article({ data }: PageProps<Markdown | null>) {
         <meta name="author" content={data.author}></meta>
 
         {/* Open Graph / Facebook */}
-        <meta property="og:url" content={`${website}/article/${data.name}`} />
+        <meta property="og:url" content={article_url} />
         <meta property="og:title" content={data.title} />
         <meta property="og:description" content={data.subtitle} />
-        <meta property="og:image" content={`${website}${data.image}`} />
+        <meta property="og:image" content={image_url} />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta
-          property="twitter:url"
-          content={`${website}/article/${data.name}`}
-        />
+        <meta property="twitter:url" content={article_url} />
         <meta property="twitter:title" content={data.title} />
         <meta property="twitter:description" content={data.subtitle} />
-        <meta property="twitter:image" content={`${website}${data.image}`} />
+        <meta property="twitter:image" content={image_url} />
         <meta property="twitter:site" content="@MetaLearnApp" />
         <meta property="twitter:creator" content={`@${data.author_twitter}`} />
 
@@ -65,7 +64,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
 
         {/* Article -> https://ogp.me/ */}
         <meta property="article:published_time" content={data.date} />
-        {/* <meta property="article:modified_time" content="2013-09-16T19:08:47+01:00" /> */}
+        <meta property="article:modified_time" content={data.date} />
         {/* <meta property="article:expiration_time" content="2013-09-16T19:08:47+01:00" /> */}
         <meta property="article:author" content={data.author} />
         <meta property="article:section" content={data.tags[0]} />
@@ -74,7 +73,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
         })}
 
         <meta property="og:article:published_time" content={data.date} />
-        {/* <meta property="og:article:modified_time" content="2013-09-16T19:08:47+01:00" /> */}
+        <meta property="og:article:modified_time" content={data.date} />
         {/* <meta property="og:article:expiration_time" content="2013-09-16T19:08:47+01:00" /> */}
         <meta property="og:article:author" content={data.author} />
         <meta property="og:article:section" content={data.tags[0]} />
@@ -82,40 +81,30 @@ export default function Article({ data }: PageProps<Markdown | null>) {
           return <meta property="og:article:tag" content={tag} />;
         })}
 
-        {/* Structured Data */}
+        {/* Structured Data -> https://developers.google.com/search/docs/advanced/structured-data/article   (take non amp)*/}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: `
               {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://google.com/article"
-      },
-      "headline": "Article headline",
-      "image": [
-        "https://example.com/photos/1x1/photo.jpg",
-        "https://example.com/photos/4x3/photo.jpg",
-        "https://example.com/photos/16x9/photo.jpg"
-      ],
-      "datePublished": "2015-02-05T08:00:00+08:00",
-      "dateModified": "2015-02-05T09:20:00+08:00",
-      "author": {
-        "@type": "Person",
-        "name": "John Doe",
-        "url": "http://example.com/profile/johndoe123"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Google",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://google.com/logo.jpg"
-        }
-      }
-    }
+                "@context": "https://schema.org",
+                "@type": "NewsArticle",
+                "headline": "${data.title}",
+                "image": [
+                  ${image_url}
+                ],
+                "datePublished": ${data.date},
+                "dateModified": "${data.date}",
+                "author": [{
+                    "@type": "Person",
+                    "name": "Jane Doe",
+                    "url": "http://example.com/profile/janedoe123"
+                  },{
+                    "@type": "Person",
+                    "name": "John Doe",
+                    "url": "http://example.com/profile/johndoe123"
+                }]
+              }
               `,
           }}
         >

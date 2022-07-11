@@ -1,6 +1,6 @@
 ---
 tags: [Psychology, App]
-date: 11-07-2022 22:04
+date: 11-07-2022 12:45
 title: New Self-Help App for Better Mental Health and Well-being
 subtitle: Meta Learn is a new interactive app based on metacognitive therapy and coaching.
 image: /images/exercises.webp

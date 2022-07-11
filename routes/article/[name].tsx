@@ -95,6 +95,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
                 ],
                 "datePublished": "${data.date}",
                 "dateModified": "${data.date}",
+                "isAccessibleForFree":"True",
                 "author": [{
                     "@type": "Person",
                     "name": "${data.author}",

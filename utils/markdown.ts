@@ -46,8 +46,8 @@ export async function readMarkdown(
         data.date.split("-")[2],
       ].join("-"),
     ).toISOString();
-    console.log(data);
-    console.log(markdown.content);
+    // console.log(data);
+    // console.log(markdown.content);
     return data;
   } catch (ex) {
     console.error(ex);

@@ -91,18 +91,17 @@ export default function Article({ data }: PageProps<Markdown | null>) {
                 "@type": "NewsArticle",
                 "headline": "${data.title}",
                 "image": [
-                  ${image_url}
+                  "${image_url}"
                 ],
-                "datePublished": ${data.date},
+                "datePublished": "${data.date}",
                 "dateModified": "${data.date}",
                 "author": [{
                     "@type": "Person",
-                    "name": "Jane Doe",
-                    "url": "http://example.com/profile/janedoe123"
+                    "name": "${data.author}"
                   },{
-                    "@type": "Person",
-                    "name": "John Doe",
-                    "url": "http://example.com/profile/johndoe123"
+                    "@type": "Organization",
+                    "name": "Meta Learn Aps",
+                    "url": "${website}"
                 }]
               }
               `,

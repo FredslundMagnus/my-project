@@ -22,6 +22,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
   const website = "https://soft-mouse-32.deno.dev";
   const article_url = `${website}/article/${data.name}`;
   const image_url = `${website}${data.image}`;
+  const meta_title = `${data.title} | Meta Learn`;
   const h1 = tw`font-bold text-4xl text-gray-900`;
   const tags = tw`text-gray-500 text-sm tracking-wide`;
   const subtitle = tw`text-2xl text-gray-500 font-normal pt-2 pb-8`;
@@ -35,22 +36,22 @@ export default function Article({ data }: PageProps<Markdown | null>) {
     <Fragment>
       <Head>
         {/* Primary Meta Tags */}
-        <title>{data.title}</title>
-        <meta name="title" content={data.title} />
+        <title>{meta_title}</title>
+        <meta name="title" content={meta_title} />
         <meta name="description" content={data.subtitle}></meta>
         <meta name="keywords" content={data.tags.join(", ")}></meta>
         <meta name="author" content={data.author}></meta>
 
         {/* Open Graph / Facebook */}
         <meta property="og:url" content={article_url} />
-        <meta property="og:title" content={data.title} />
+        <meta property="og:title" content={meta_title} />
         <meta property="og:description" content={data.subtitle} />
         <meta property="og:image" content={image_url} />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={article_url} />
-        <meta property="twitter:title" content={data.title} />
+        <meta property="twitter:title" content={meta_title} />
         <meta property="twitter:description" content={data.subtitle} />
         <meta property="twitter:image" content={image_url} />
         <meta property="twitter:site" content="@MetaLearnApp" />
@@ -89,8 +90,8 @@ export default function Article({ data }: PageProps<Markdown | null>) {
               {
                 "@context": "https://schema.org",
                 "@type": "NewsArticle",
-                "headline": "${data.title} | Meta Learn",
-                "name": "${data.title}",
+                "headline": "${meta_title}",
+                "name": "${meta_title}",
                 "description": "${data.subtitle}",
                 "mainEntityOfPage": "${website}",
                 "image": [

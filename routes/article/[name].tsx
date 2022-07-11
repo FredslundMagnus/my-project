@@ -35,7 +35,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
   return (
     <Fragment>
       <Head>
-        <link rel="preload" as="image" href={data.image}></link>
+        {/* <link rel="preload" as="image" href={data.image}></link> */}
 
         {/* Primary Meta Tags */}
         <title>{meta_title}</title>

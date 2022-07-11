@@ -73,8 +73,6 @@ export default function Article({ data }: PageProps<Markdown | null>) {
           return <meta property="article:tag" content={tag} />;
         })}
 
-
-
         {/* Structured Data -> https://developers.google.com/search/docs/advanced/structured-data/article   (take non amp)*/}
         <script
           type="application/ld+json"

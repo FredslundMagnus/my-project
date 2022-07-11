@@ -83,7 +83,13 @@ export default function Article({ data }: PageProps<Markdown | null>) {
         })}
 
         {/* Structured Data */}
-        <script type="application/ld+json">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html:
+              '{"@context": "https://schema.org", "@type": "NewsArticle", "headline"}',
+          }}
+        >
           "@context": "https://schema.org", "@type": "NewsArticle", "headline":
           "Article headline", "image": [
           "https://example.com/photos/1x1/photo.jpg",

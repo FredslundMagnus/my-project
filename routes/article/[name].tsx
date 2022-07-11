@@ -11,7 +11,7 @@ export const handler: Handlers<Markdown | null> = {
     const { name } = ctx.params;
     const markdown = await readMarkdown(name);
     // await resizeImg(markdown?.image!);
-    console.log(asset(markdown!.image));
+    // console.log(asset(markdown!.image));
     return ctx.render(markdown);
   },
 };

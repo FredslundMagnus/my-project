@@ -116,7 +116,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
                       "@type": "ImageObject",
                       "width": 3840,
                       "height": 3840,
-                      "url": "https:\u002F\u002Fmiro.medium.com\u002Fmax\u002F308\u002F1*OMF3fSqH8t4xBJ9-6oZDZw.png"
+                      "url": "${website}/logo.png"
                     }
                 }]
               }

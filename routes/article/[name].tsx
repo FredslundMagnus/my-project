@@ -97,7 +97,8 @@ export default function Article({ data }: PageProps<Markdown | null>) {
                 "dateModified": "${data.date}",
                 "author": [{
                     "@type": "Person",
-                    "name": "${data.author}"
+                    "name": "${data.author}",
+                    "url": "https://twitter.com/${data.author_twitter}"
                   },{
                     "@type": "Organization",
                     "name": "Meta Learn Aps",

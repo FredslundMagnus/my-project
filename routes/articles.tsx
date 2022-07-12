@@ -24,8 +24,7 @@ export default function Articles({ data }: PageProps<Markdown[]>) {
   const box = tw
     `shadow-lg hover:shadow-xl p-4 grid grid-cols-3 grid-flow-col gap-4`;
   const box_layout = tw`col-span-2 row-span-1`;
-  const section = tw
-    `pr-20 pl-20 mx-auto max-w-screen-lg pt-16 pb-16 grid grid-cols-1 gap-4`;
+  const layout = tw`p-4 pl-4 mx-auto max-w-screen-lg grid grid-cols-1 gap-4`;
   const img = tw`row-span-1 col-span-1 align-middle`;
   const h2 = tw`text-xl font-bold text-gray-900 row-span-1`;
   const h3 = tw`text-md text-gray-500 row-span-1`;
@@ -35,7 +34,7 @@ export default function Articles({ data }: PageProps<Markdown[]>) {
         <title>Articles | Meta Learn</title>
         <meta name="description" content="A collection of articles"></meta>
       </Head>
-      <App class={section}>
+      <App class={layout}>
         {data.map(({ name, image, image_description, title, subtitle }) => {
           return (
             <section>

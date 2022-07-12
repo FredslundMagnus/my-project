@@ -4,15 +4,12 @@ import { asset, Head } from "$fresh/runtime.ts";
 import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Markdown, readMarkdown } from "../../utils/markdown.ts";
-// import { serve } from "https://deno.land/std/http/server.ts";
-// import { resizeImg } from "../../utils/image.ts";
+import { App } from "../../widgets/navigator.tsx";
 
 export const handler: Handlers<Markdown | null> = {
   async GET(_, ctx) {
     const { name } = ctx.params;
     const markdown = await readMarkdown(name);
-    // await resizeImg(markdown?.image!);
-    // console.log(asset(markdown!.image));
     return ctx.render(markdown);
   },
 };
@@ -32,7 +29,7 @@ export default function Article({ data }: PageProps<Markdown | null>) {
   const p = tw`text-gray-600 leading-relaxed text-xl pt-2`;
   const a = tw`underline`;
   const img = tw`pt-2 pb-2`;
-  const article = tw`pr-4 pl-4 mx-auto max-w-screen-md pt-16 pb-16`;
+  const article = tw`pr-4 pl-4 mx-auto max-w-screen-md pt-12 pb-10`;
   const html = data.markdown(h3, p, a);
   return (
     <Fragment>
@@ -125,22 +122,23 @@ export default function Article({ data }: PageProps<Markdown | null>) {
         >
         </script>
       </Head>
-      <article class={article}>
-        <h2 class={tags}>{data.tags.map((s) => s.toUpperCase()).join(", ")}</h2>
-        <h1 class={h1}>{data.title}</h1>
-        <h2 class={subtitle}>{data.subtitle}</h2>
-        <img
-          class={img}
-          // rel="preload"
-          // as="image"
-          // preload={true}
-          src={data.image}
-          height="368px"
-          width="736px"
-          alt={data.image_description}
-        />
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </article>
+      <App class={tw`bg-neutral`}>
+        <article class={article}>
+          <h2 class={tags}>
+            {data.tags.map((s) => s.toUpperCase()).join(", ")}
+          </h2>
+          <h1 class={h1}>{data.title}</h1>
+          <h2 class={subtitle}>{data.subtitle}</h2>
+          <img
+            class={img}
+            src={data.image}
+            height="368px"
+            width="736px"
+            alt={data.image_description}
+          />
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </article>
+      </App>
     </Fragment>
   );
 }

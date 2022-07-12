@@ -5,6 +5,7 @@ import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { articleNames } from "../utils/articles.ts";
 import { Markdown, readMarkdown } from "../utils/markdown.ts";
+import { App } from "../widgets/navigator.tsx";
 
 export const handler: Handlers<Markdown[]> = {
   async GET(_, ctx) {
@@ -31,30 +32,32 @@ export default function Articles({ data }: PageProps<Markdown[]>) {
   return (
     <Fragment>
       <Head>
-        <title>Articles</title>
+        <title>Articles | Meta Learn</title>
         <meta name="description" content="A collection of articles"></meta>
         {
           /* <meta name="keywords" content={data.map(())}></meta>
         <meta name="author" content={data.author}></meta> */
         }
       </Head>
-      <section class={section}>
+      <App class={section} current="a">
         {data.map(({ name, image, image_description, title, subtitle }) => {
           return (
-            <a class={box} href={`article/${name}`}>
-              <img
-                class={img}
-                src={image}
-                alt={image_description}
-              />
-              <div class={box_layout}>
-                <h2 class={h2}>{title}</h2>
-                <h3 class={h3}>{subtitle}</h3>
-              </div>
-            </a>
+            <section>
+              <a class={box} href={`article/${name}`}>
+                <img
+                  class={img}
+                  src={image}
+                  alt={image_description}
+                />
+                <div class={box_layout}>
+                  <h2 class={h2}>{title}</h2>
+                  <h3 class={h3}>{subtitle}</h3>
+                </div>
+              </a>
+            </section>
           );
         })}
-      </section>
+      </App>
     </Fragment>
   );
 }

@@ -22,7 +22,7 @@ export const handler: Handlers<Markdown[]> = {
 
 export default function Articles({ data }: PageProps<Markdown[]>) {
   const box = tw
-    `shadow-lg hover:shadow-xl p-4 grid grid-cols-3 grid-flow-col gap-4 sm:grid-cols-1`;
+    `shadow-lg hover:shadow-xl p-4 grid grid-cols-3 grid-flow-row gap-4 box`;
   const box_layout = tw`col-span-2 row-span-1`;
   const layout = tw`p-4 pl-4 mx-auto max-w-screen-lg grid grid-cols-1 gap-4`;
   const img = tw`row-span-1 col-span-1 align-middle`;
@@ -34,11 +34,22 @@ export default function Articles({ data }: PageProps<Markdown[]>) {
         <title>Articles | Meta Learn</title>
         <meta name="description" content="A collection of articles"></meta>
       </Head>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `@media (max-width: 720px) {
+    .box { 	grid-template-columns: repeat(1, minmax(0, 1fr)); }
+}`,
+        }}
+      >
+      </style>
       <App class={layout}>
         {data.map(({ name, image, image_description, title, subtitle }) => {
           return (
             <section>
-              <a class={box} href={`article/${name}`}>
+              <a
+                class={box}
+                href={`article/${name}`}
+              >
                 <img class={img} src={image} alt={image_description} />
                 <div class={box_layout}>
                   <h2 class={h2}>{title}</h2>

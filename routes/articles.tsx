@@ -23,7 +23,7 @@ export const handler: Handlers<Markdown[]> = {
 export default function Articles({ data }: PageProps<Markdown[]>) {
   const box = tw
     `shadow-lg hover:shadow-xl p-4 grid grid-cols-3 grid-flow-row gap-4 box`;
-  const box_layout = tw`col-span-2 row-span-1`;
+  const box_layout = tw`col-span-2 row-span-1 layout`;
   const layout = tw`p-4 pl-4 mx-auto max-w-screen-lg grid grid-cols-1 gap-4`;
   const img = tw`row-span-1 col-span-1 align-middle`;
   const h2 = tw`text-xl font-bold text-gray-900 row-span-1`;
@@ -37,7 +37,8 @@ export default function Articles({ data }: PageProps<Markdown[]>) {
       <style
         dangerouslySetInnerHTML={{
           __html: `@media (max-width: 720px) {
-    .box { 	grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    .box { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    .layout { grid-column: span 1 / span 1; }
 }`,
         }}
       >

@@ -22,7 +22,7 @@ export const handler: Handlers<Markdown[]> = {
 
 export default function Articles({ data }: PageProps<Markdown[]>) {
   const box = tw
-    `shadow-lg hover:shadow-xl p-4 grid grid-cols-3 grid-flow-col gap-4`;
+    `shadow-lg hover:shadow-xl p-4 grid grid-cols-3 grid-flow-col gap-4 sm:grid-cols-1`;
   const box_layout = tw`col-span-2 row-span-1`;
   const layout = tw`p-4 pl-4 mx-auto max-w-screen-lg grid grid-cols-1 gap-4`;
   const img = tw`row-span-1 col-span-1 align-middle`;

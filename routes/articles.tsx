@@ -34,21 +34,13 @@ export default function Articles({ data }: PageProps<Markdown[]>) {
       <Head>
         <title>Articles | Meta Learn</title>
         <meta name="description" content="A collection of articles"></meta>
-        {
-          /* <meta name="keywords" content={data.map(())}></meta>
-        <meta name="author" content={data.author}></meta> */
-        }
       </Head>
-      <App class={section} current="a">
+      <App class={section}>
         {data.map(({ name, image, image_description, title, subtitle }) => {
           return (
             <section>
               <a class={box} href={`article/${name}`}>
-                <img
-                  class={img}
-                  src={image}
-                  alt={image_description}
-                />
+                <img class={img} src={image} alt={image_description} />
                 <div class={box_layout}>
                   <h2 class={h2}>{title}</h2>
                   <h3 class={h3}>{subtitle}</h3>

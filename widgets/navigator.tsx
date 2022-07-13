@@ -9,7 +9,7 @@ interface NavProps {
 }
 
 export function App(props: NavProps) {
-  const btn = tw`px-2 py-1 border(gray-100 1) hover:bg-gray-200`;
+  const btn = tw`px-2 py-1 hover:bg-gray-200 text-xl`;
   const footer = tw`bg-[#171717] h-12 content-center grid`;
   const header = tw`flex gap-2 w-full shadow-lg h-16`;
   const nav = tw``;
@@ -21,7 +21,7 @@ export function App(props: NavProps) {
     <body style={flex_wrapper}>
       <header class={header}>
         <nav class={nav}>
-          <a class={btn} href="../articles">articles</a>
+          <a class={btn} href="../articles">Articles</a>
         </nav>
       </header>
       <main class={props.class}>

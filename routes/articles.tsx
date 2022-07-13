@@ -33,16 +33,16 @@ export default function Articles({ data }: PageProps<Markdown[]>) {
       <Head>
         <title>Articles | Meta Learn</title>
         <meta name="description" content="A collection of articles"></meta>
-      </Head>
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `@media (max-width: 720px) {
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `@media (max-width: 720px) {
     .box { grid-template-columns: repeat(1, minmax(0, 1fr)); }
     .layout { grid-column: span 1 / span 1; }
 }`,
-        }}
-      >
-      </style>
+          }}
+        >
+        </style>
+      </Head>
       <App class={layout}>
         {data.map(({ name, image, image_description, title, subtitle }) => {
           return (

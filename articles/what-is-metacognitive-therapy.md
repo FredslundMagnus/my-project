@@ -12,3 +12,7 @@ author_twitter: MetaLearnApp
 ### Hello
 
 My name is Magnus
+
+### New title
+
+Just a test
